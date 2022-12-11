@@ -68,8 +68,11 @@ public class Tile : MonoBehaviour
 
     private void SetupFirstObstacls()
     {
-        int r = Random.Range(0, 2);
-        firstObstacls[r].SetActive(true);
+        int r = Random.Range(0, 3);
+        if (r != 2)
+        {
+            firstObstacls[r].SetActive(true);
+        }
     }
 
     private void OnDisable()

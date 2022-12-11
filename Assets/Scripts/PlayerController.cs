@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
             StopCoroutine(movingCoroutine);
             isMoving = false;
         }
-        movingCoroutine = StartCoroutine(MoveCoroutine(speed * 4));
+        movingCoroutine = StartCoroutine(MoveCoroutine(speed * 10));
     }
     IEnumerator MoveCoroutine(float speed)
     {
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
         transform.position = new Vector3(pointFinish, transform.position.y, transform.position.z);
         isMoving = false;
     }
-
+    
     private void Jump()
     {
         isJumping = true;

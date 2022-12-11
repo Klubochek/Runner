@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "66527787044",
+    "firebase_url": "https://testproject-a74d3-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "testproject-a74d3",
+    "storage_bucket": "testproject-a74d3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:66527787044:android:40da7f888d853b80ce80b1",
+        "android_client_info": {
+          "package_name": "com.SimaStudio.Runner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "66527787044-fife7j0lisbdl3b4odfoti9fh4dlfvoo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdmxQBqn1qXbgCitJrbAjHTqC-5aGA1hY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "66527787044-fife7j0lisbdl3b4odfoti9fh4dlfvoo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

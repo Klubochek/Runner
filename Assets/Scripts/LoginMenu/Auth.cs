@@ -74,10 +74,11 @@ public class Auth : MonoBehaviour
                 Debug.Log(authtask.Exception.GetBaseException());
                 exeptionText.text = authtask.Exception.GetBaseException().ToString().Replace("Firebase.FirebaseException:", "");
             }
+            else
+            {
+                ChangeScene();
+            }
         }
-        else
-        {
-            ChangeScene();
-        }
+        
     }
 }

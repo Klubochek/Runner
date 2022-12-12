@@ -5,11 +5,11 @@ public class InGameAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListe
 {
     public void LoadAd()
     {
-        Advertisement.Load("5070875", this);
+        Advertisement.Load("Interstitial_Android", this);
     }
     public void ShowAd()
     {
-        Advertisement.Show("5070875", this);
+        Advertisement.Show("Interstitial_Android", this);
     }
     public void OnUnityAdsAdLoaded(string placementId)
     {

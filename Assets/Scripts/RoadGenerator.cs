@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class RoadGenerator : MonoBehaviour
 {
+    [SerializeField] private InGameAd inGameAd;
     [SerializeField] private List<GameObject> activeTiles;
     [SerializeField] private List<GameObject> tiles;
     [SerializeField] private PoolCreator poolCreator;
@@ -32,7 +33,7 @@ public class RoadGenerator : MonoBehaviour
     }
     public void StartLevel()
     {
-
+        inGameAd.LoadAd();
         speed = maxSpeed;
         IsStarted = true;
         Player.Instance.PlayerRun();

@@ -21,7 +21,6 @@ public class RoadGenerator : MonoBehaviour
 
     public void ResetLevel()
     {
-        SwipeController.Instance.enabled = true;
         Player.Instance.RestartGame();
         IsStarted = false;
         speed = 0;

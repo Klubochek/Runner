@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -18,9 +19,17 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        SwipeController.Instance.SwipeEvent += ChangePlayerPosition;
+        StartCoroutine(SwipeActivation());
         playerRb = player.GetComponent<Rigidbody>();
 
+    }
+
+    private IEnumerator SwipeActivation()
+    {
+        yield return new WaitForSeconds(2);
+        Debug.Log("SwipeActivated");
+        SwipeController.Instance.enabled = true;
+        SwipeController.Instance.SwipeEvent += ChangePlayerPosition;
     }
 
     private void ChangePlayerPosition(bool[] swipes)

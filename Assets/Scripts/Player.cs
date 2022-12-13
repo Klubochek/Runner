@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     public bool isJumping = false;
     public bool isRunning = false;
     [SerializeField] private PlayerController pc;
-    [SerializeField] private InGameAd inGameAdd;
 
     private void Awake()
     {
@@ -56,7 +55,7 @@ public class Player : MonoBehaviour
             score.StopCountScore();
             SwipeController.Instance.enabled = false;
             menuBox.SetActive(true);
-            inGameAdd.ShowAd();
+            
 
         }
         else if (other.gameObject.CompareTag("LowObstacle"))
@@ -66,7 +65,7 @@ public class Player : MonoBehaviour
             score.StopCountScore();
             SwipeController.Instance.enabled = false;
             menuBox.SetActive(true);
-            inGameAdd.ShowAd();
+            
         }
     }
     private IEnumerator Roll()

@@ -1,10 +1,12 @@
 using Firebase.Auth;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InGameButton : MonoBehaviour
 {
+    [SerializeField] private Ad ad;
     [SerializeField] private FirebaseAuth auth;
     [SerializeField] private GameObject leaderboardMenu;
     [SerializeField] private GameObject mainMenu;
@@ -15,7 +17,7 @@ public class InGameButton : MonoBehaviour
     }
     public void OnResetButtonClick()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(RestartLevel());
     }
     public void OnLeaderboardButtonClick()
     {
@@ -39,5 +41,11 @@ public class InGameButton : MonoBehaviour
     public void OnCloseMenuButtonClick()
     {
         mainMenu.SetActive(false);
+    }
+    private IEnumerator RestartLevel()
+    {
+        ad.ShowAd();
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(1);
     }
 }

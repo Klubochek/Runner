@@ -61,6 +61,11 @@ public class Auth : MonoBehaviour
             Debug.Log(authtask.Exception.GetBaseException());
             var exept = authtask.Exception.GetBaseException() as FirebaseException;
             exeptionText.text = authtask.Exception.GetBaseException().ToString().Replace("Firebase.FirebaseException:", "");
+            
+        }
+        else
+        {
+            StartCoroutine(Login());
         }
     }
     private IEnumerator Login()
@@ -79,6 +84,10 @@ public class Auth : MonoBehaviour
                 ChangeScene();
             }
         }
-        
+        else
+        {
+            ChangeScene();
+        }
+
     }
 }

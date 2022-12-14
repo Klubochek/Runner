@@ -12,21 +12,11 @@ public class PlayerController : MonoBehaviour
     private int laneOffset = 5;
     bool isMoving = false;
     float jumpPower = 25;
-    float jumpGravity = -60;
+    float jumpGravity = -70;
     float realGravity = -9.8f;
     private float pointStart;
-
     private void Start()
     {
-        StartCoroutine(SwipeActivation());
-
-    }
-
-    private IEnumerator SwipeActivation()
-    {
-        yield return new WaitForSeconds(2);
-        Debug.Log("SwipeActivated");
-        SwipeController.Instance.enabled = true;
         SwipeController.Instance.SwipeEvent += ChangePlayerPosition;
     }
 

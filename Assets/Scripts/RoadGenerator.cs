@@ -17,6 +17,7 @@ public class RoadGenerator : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        SwipeController.Instance.ClickEvent += StartLevel;
     }
 
     public void ResetLevel()
@@ -31,9 +32,12 @@ public class RoadGenerator : MonoBehaviour
     }
     public void StartLevel()
     {
-        speed = maxSpeed;
-        IsStarted = true;
-        Player.Instance.PlayerRun();
+        if (!IsStarted)
+        {
+            speed = maxSpeed;
+            IsStarted = true;
+            Player.Instance.PlayerRun();
+        }
     }
 
     public void CreateRoad()

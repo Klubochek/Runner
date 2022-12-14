@@ -2,7 +2,6 @@ using Firebase.Auth;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class InGameButton : MonoBehaviour
 {
@@ -17,6 +16,7 @@ public class InGameButton : MonoBehaviour
     }
     public void OnResetButtonClick()
     {
+        Time.timeScale = 1;
         StartCoroutine(RestartLevel());
     }
     public void OnLeaderboardButtonClick()

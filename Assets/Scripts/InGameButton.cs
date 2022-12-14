@@ -36,10 +36,12 @@ public class InGameButton : MonoBehaviour
     }
     public void OnMenuButtonClick()
     {
+        Time.timeScale = 0;
         mainMenu.SetActive(true);
     }
     public void OnCloseMenuButtonClick()
     {
+        Time.timeScale = 1;
         mainMenu.SetActive(false);
     }
     private IEnumerator RestartLevel()

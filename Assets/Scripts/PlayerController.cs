@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
     [SerializeField] private Rigidbody playerRb;
     private Coroutine movingCoroutine;
     private bool isJumping = false;
@@ -20,7 +19,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         StartCoroutine(SwipeActivation());
-        playerRb = player.GetComponent<Rigidbody>();
 
     }
 

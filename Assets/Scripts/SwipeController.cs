@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -10,6 +11,7 @@ public class SwipeController : MonoBehaviour
     public Vector2 swipeDelta;
     const float SWIPE_RANGE = 50;
     public bool touchMoved;
+    private bool onMenuClick = false;
 
 
     public Action<bool[]> SwipeEvent;
@@ -34,7 +36,12 @@ public class SwipeController : MonoBehaviour
 
     void Update()
     {
-        if (EventSystem.current.IsPointerOverGameObject()) return;
+        if (EventSystem.current.IsPointerOverGameObject()) 
+        {
+            StartCoroutine(OnUIClick());
+            return; 
+        }
+
         if (TouchBegan())
         {
             startTuch = TouchPostion();
@@ -97,5 +104,10 @@ public class SwipeController : MonoBehaviour
             swipe[i] = false;
         }
     }
-
+    private IEnumerator OnUIClick()
+    {
+        onMenuClick = true;
+        yield return new WaitForSeconds(0.5f);
+        onMenuClick = false;
+    }
 }

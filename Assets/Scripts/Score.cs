@@ -52,6 +52,7 @@ public class Score : MonoBehaviour
         scoreText.text = "Score:" + score.ToString();
         StopCountScore();
     }
+
     private IEnumerator WriteNewScore()
     {
         var lastscore = dbr.Child("LeaderBoard").Child(auth.CurrentUser.Email.Replace(".", "")).Child("Score").GetValueAsync();

@@ -1,10 +1,9 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class Tile : MonoBehaviour
 {
+    private const int SecondLine = 2;
     [SerializeField] private GameObject[] firstObstacls;
     [SerializeField] private GameObject[] secondObstacls;
     [SerializeField] private GameObject[] thirdObstacls;
@@ -14,10 +13,9 @@ public class Tile : MonoBehaviour
 
     private void OnEnable()
     {
-
         SetupFirstObstacls();
-        SetupSecondObstacls();
-        SetupThirdObstacls();
+        SetupObstacls(secondObstacls);
+        SetupObstacls(thirdObstacls);
         SetupCoinsLine();
     }
 
@@ -32,61 +30,41 @@ public class Tile : MonoBehaviour
         }
     }
 
-    private void SetupThirdObstacls()
+    private void SetupObstacls(GameObject[] obstals)
     {
         int activeObstacle = 0;
-        for (int i = 0; i < thirdObstacls.Length; i++)
+        for (int i = 0; i < obstals.Length; i++)
         {
             if (Random.Range(0, 2) == 0)
             {
-                thirdObstacls[i].SetActive(true);
+                obstals[i].SetActive(true);
                 activeObstacle++;
             }
         }
-        if (activeObstacle == 3)
+        if (activeObstacle == obstals.Length)
         {
-            thirdObstacls[Random.Range(0, 3)].SetActive(false);
-        }
-    }
-
-    private void SetupSecondObstacls()
-    {
-        int activeObstacle = 0;
-        for (int i = 0; i < secondObstacls.Length; i++)
-        {
-            if (Random.Range(0, 2) == 0)
-            {
-                secondObstacls[i].SetActive(true);
-                activeObstacle++;
-            }
-        }
-        if (activeObstacle == 6)
-        {
-            secondObstacls[Random.Range(0, 6)].SetActive(false);
+            obstals[Random.Range(0, obstals.Length)].SetActive(false);
         }
     }
 
     private void SetupFirstObstacls()
     {
-        int r = Random.Range(0, 3);
-        if (r != 2)
+        int obstacl = Random.Range(0, 3);
+        if (obstacl != SecondLine)
         {
-            firstObstacls[r].SetActive(true);
+            firstObstacls[obstacl].SetActive(true);
         }
     }
 
     private void OnDisable()
     {
-        foreach (GameObject go in allTileObject)
-        {
-            go.SetActive(false);
-        }
+        DeactivateObstacle();
     }
     public void DeactivateObstacle()
     {
-        foreach(GameObject go in allTileObject)
+        foreach (GameObject obstacl in allTileObject)
         {
-            go.SetActive(false);
+            obstacl.SetActive(false);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 public class Ad : MonoBehaviour
 {
-    private InterstitialAd interstitial;
+    private InterstitialAd _interstitial;
 
     void Start()
     {
@@ -22,17 +22,16 @@ public class Ad : MonoBehaviour
 #else
         string adUnitId = "unexpected_platform";
 #endif
-        this.interstitial = new InterstitialAd(adUnitId);
-        // Create an empty ad request.
+        _interstitial = new InterstitialAd(adUnitId);
+     
         AdRequest request = new AdRequest.Builder().Build();
-        // Load the interstitial with the request.
-        this.interstitial.LoadAd(request);
+        _interstitial.LoadAd(request);
     }
     public void ShowAd()
     {
-        if (this.interstitial.IsLoaded())
+        if (_interstitial.IsLoaded())
         {
-            interstitial.Show();
+            _interstitial.Show();
         }
     }
 }

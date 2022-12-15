@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
 
     }
     public void PlayerJump()
-    { 
+    {
         Debug.Log("Player is jumping");
         PlayerStateManager.Instance.SwitchState(new PlayerJumpingState());
 
@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
             score.StopCountScore();
             SwipeController.Instance.enabled = false;
             menuBox.SetActive(true);
-            
+
 
         }
         else if (other.gameObject.CompareTag("LowObstacle"))
@@ -65,7 +65,7 @@ public class Player : MonoBehaviour
             score.StopCountScore();
             SwipeController.Instance.enabled = false;
             menuBox.SetActive(true);
-            
+
         }
     }
     private IEnumerator Roll()

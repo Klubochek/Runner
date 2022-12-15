@@ -53,12 +53,12 @@ public class RoadGenerator : MonoBehaviour
         activeTiles.Add(disabledTile);
         poolCreator.Pool.RemoveAt(r);
         activeTiles[activeTiles.Count - 1].SetActive(true);
-        activeTiles[activeTiles.Count-1].transform.position = pos;
+        activeTiles[activeTiles.Count - 1].transform.position = pos;
         if (activeTiles.Count == 1)
         {
             activeTiles[0].GetComponent<Tile>().DeactivateObstacle();
         }
-        
+
     }
     private void Update()
     {

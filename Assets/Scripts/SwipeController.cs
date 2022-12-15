@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SwipeController : MonoBehaviour, IBeginDragHandler,IEndDragHandler,IDragHandler
+public class SwipeController : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     public static SwipeController Instance;
     public Vector2 startTuch;
@@ -46,12 +46,12 @@ public class SwipeController : MonoBehaviour, IBeginDragHandler,IEndDragHandler,
     {
         if (swipe[0] || swipe[1] || swipe[2] || swipe[3] && RoadGenerator.Instance.speed > 0 && RoadGenerator.Instance.IsStarted)
         {
-            
+
             SwipeEvent?.Invoke(swipe);
         }
         Reset();
     }
-    
+
     private void Reset()
     {
         startTuch = swipeDelta = Vector3.zero;

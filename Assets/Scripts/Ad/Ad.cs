@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using GoogleMobileAds.Api;
-using System.Threading.Tasks;
+using UnityEngine;
 
 public class Ad : MonoBehaviour
 {
@@ -23,7 +20,7 @@ public class Ad : MonoBehaviour
         string adUnitId = "unexpected_platform";
 #endif
         _interstitial = new InterstitialAd(adUnitId);
-     
+
         AdRequest request = new AdRequest.Builder().Build();
         _interstitial.LoadAd(request);
     }

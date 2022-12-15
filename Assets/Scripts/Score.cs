@@ -101,7 +101,7 @@ public class Score : MonoBehaviour
             DataSnapshot ds = leader.Result;
             foreach (DataSnapshot dataSnapshot in ds.Children.Reverse())
             {
-                leaderboardText.text += "\n" +dataSnapshot.Child("Email").Value + "  "+dataSnapshot.Child("Score").Value;
+                leaderboardText.text += "\n" + dataSnapshot.Child("Email").Value + "  " + dataSnapshot.Child("Score").Value;
             }
         }
     }
